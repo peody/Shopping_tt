@@ -13,8 +13,7 @@ namespace Shopping_tt
             builder.Services.AddDbContext<DataContext>(Options =>
             {
                 Options.UseSqlServer(builder.Configuration["ConnectionStrings : ConnectedDb"]);
-            });
-
+            });           
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
