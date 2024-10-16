@@ -11,8 +11,8 @@ using Shopping_tt.Repository;
 namespace Shopping_tt.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241009084206_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20241015160459_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,6 +98,10 @@ namespace Shopping_tt.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -20,6 +20,7 @@ namespace Shopping_tt.Models
         public int CatagoryId { get; set; }
         public CategoryModel Category { get; set; }
         public BrandModel Brand { get; set; }
+        public string Image {  get; set; }
 
     }
 }

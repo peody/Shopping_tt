@@ -9,10 +9,10 @@ namespace Shopping_tt
         public static void Main(string[] args)
         {
 			var builder = WebApplication.CreateBuilder(args);
-            //ConnectionDb
-            builder.Services.AddDbContext<DataContext>(Options =>
+            //Connection Db
+            builder.Services.AddDbContext<DataContext>(options =>
             {
-                Options.UseSqlServer(builder.Configuration["ConnectionStrings : ConnectedDb"]);
+                options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectedDb"]);
             });           
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -38,6 +38,9 @@ namespace Shopping_tt
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<DataContext>();
+            SeedData.SeedingData(context);
 
             app.Run();
         }

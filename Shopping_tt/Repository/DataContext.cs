@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Shopping_tt.Models;
 
+
 namespace Shopping_tt.Repository
 {
     public class DataContext : DbContext
