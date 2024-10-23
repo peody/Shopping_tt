@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Shopping_tt.Repository.Validation;
+
 
 namespace Shopping_tt.Models
 {
@@ -21,6 +23,9 @@ namespace Shopping_tt.Models
         public CategoryModel Category { get; set; }
         public BrandModel Brand { get; set; }
         public string Image {  get; set; }
+        [NotMapped]
+        [FileExtension]
+        public IFormFile ImageUpload { get; set; }
 
     }
 }
